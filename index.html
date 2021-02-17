@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <h1>Hola espera estoy obteniendo la información</h1>
+    <div>
+        <p>Mensaje de symfony con error de cors:</p>
+        <p id="msg_symfony"></p>
+    </div>
+    <div>
+        <p>Mensaje de laravel con error de cors:</p>
+        <p id="msg_laravel"></p>
+    </div>
+    <div>
+        <p>Mensaje de symfony en carpeta:</p>
+        <p id="msg_symfony2"></p>
+    </div>
+    <div>
+        <p>Mensaje de laravel en carpeta:</p>
+        <p id="msg_laravel2"></p>
+    </div>
+    <div>
+        <p>Mensaje de symfony arreglando cors:</p>
+        <p id="msg_symfony3"></p>
+    </div>
+    <div>
+        <p>Mensaje de laravel arreglando cors:</p>
+        <p id="msg_laravel3"></p>
+    </div>
+</div>
+<script type="application/javascript">
+    (() => {
+        const url_laravel = 'http://laravel.site/api/test1';
+        const url_symfony = 'http://symfony.site/test';
+        const url_laravel2 = '/symfony';
+        const url_symfony2 = '/laravel';
+        const url_laravel3 = 'http://laravel.site/api/test2';
+        const url_symfony3 = 'http://symfony.site/test2';
+        fetch(url_symfony)
+            .then(result => result.json())
+            .then(json => {
+                document.getElementById('msg_symfony').innerText = json.message;
+            }).catch(error => {
+             console.error(error);
+            document.getElementById('msg_symfony').innerText = 'ocurrio un error';
+        });
+        fetch(url_laravel)
+            .then(result => result.json())
+            .then(json => {
+                document.getElementById('msg_laravel').innerText = json.message;
+            }).catch(error => {
+            console.error(error);
+            document.getElementById('msg_laravel').innerText = 'ocurrio un error';
+        });
+        fetch(url_symfony2)
+            .then(result => result.json())
+            .then(json => {
+                document.getElementById('msg_symfony2').innerText = json.message;
+            }).catch(error => {
+            console.error(error);
+            document.getElementById('msg_symfony2').innerText = 'ocurrio un error';
+        });
+        fetch(url_laravel2)
+            .then(result => result.json())
+            .then(json => {
+                document.getElementById('msg_laravel2').innerText = json.message;
+            }).catch(error => {
+            console.error(error);
+            document.getElementById('msg_laravel2').innerText = 'ocurrio un error';
+        });
+        fetch(url_symfony3)
+            .then(result => result.json())
+            .then(json => {
+                document.getElementById('msg_symfony3').innerText = json.message;
+            }).catch(error => {
+            console.error(error);
+            document.getElementById('msg_symfony3').innerText = 'ocurrio un error';
+        });
+        fetch(url_laravel3)
+            .then(result => result.json())
+            .then(json => {
+                document.getElementById('msg_laravel3').innerText = json.message;
+            }).catch(error => {
+            console.error(error);
+            document.getElementById('msg_laravel3').innerText = 'ocurrio un error';
+        });
+    })();
+</script>
+</body>
+</html>
